@@ -1,16 +1,16 @@
-#react-interval-selector
+# react-interval-selector
 
 React UI component for selecting elements of set.
 
 ![DEMO image](https://github.com/VasaPopkin/react-interval-selector/blob/docs/demo/select-demo.gif)
 
-##install
+## Install
 
 ```shell
 npm install react-interval-selector
 ```
 
-##usage
+## Usage
 ```shell
 import ReactIntervalSelector from 'react-interval-selector';
 
@@ -19,7 +19,7 @@ import ReactIntervalSelector from 'react-interval-selector';
 ...
 ```
 
-##properties
+## Properties
 - initializer(from, to, interval)
 Use this property to define a function that will create an array of elements. By default component will create a set of time intervals from '00:00' to '23:30'
 
