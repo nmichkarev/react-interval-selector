@@ -91,7 +91,7 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleTouchStart", function (e) {});
 
-    var intervalsFactory = props.intervalsFactory,
+    var initializer = props.initializer,
         fromInterval = props.fromInterval,
         toInterval = props.toInterval,
         interval = props.interval;
@@ -99,7 +99,7 @@ function (_React$Component) {
     var intervals;
 
     try {
-      intervals = intervalsFactory(fromInterval, toInterval, interval);
+      intervals = initializer(fromInterval, toInterval, interval);
       if (!Array.isArray(intervals)) throw new Error('Function should return an array');
     } catch (e) {
       throw e;
@@ -155,6 +155,7 @@ function (_React$Component) {
       this.setState({
         selected: newSelected
       });
+      if (this.props.onChangeSelection) this.props.onChangeSelection(newSelected);
     }
   }, {
     key: "render",
@@ -203,15 +204,16 @@ function (_React$Component) {
 
 _defineProperty(ReactIntervalSelector, "propTypes", {
   count: _propTypes["default"].number,
-  intervalsFactory: _propTypes["default"].func,
+  initializer: _propTypes["default"].func,
   fromInterval: _propTypes["default"].any,
   toInterval: _propTypes["default"].any,
-  interval: _propTypes["default"].any
+  interval: _propTypes["default"].any,
+  onChangeSelection: _propTypes["default"].func
 });
 
 _defineProperty(ReactIntervalSelector, "defaultProps", {
   count: 48,
-  intervalsFactory: _Labels.getPieces,
+  initializer: _Labels.getPieces,
   fromInterval: '00:00',
   toInterval: '23:30',
   interval: '30m'

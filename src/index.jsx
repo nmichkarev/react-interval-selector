@@ -9,15 +9,16 @@ class ReactIntervalSelector extends React.Component {
 
 	static propTypes = {
 		count: PropTypes.number,
-		intervalsFactory: PropTypes.func,
+		initializer: PropTypes.func,
 		fromInterval: PropTypes.any,
 		toInterval: PropTypes.any,
-		interval: PropTypes.any
+		interval: PropTypes.any,
+		onChangeSelection: PropTypes.func
 	}
 
 	static defaultProps = {
 		count: 48,
-		intervalsFactory: getPieces,
+		initializer: getPieces,
 		fromInterval: '00:00',
 		toInterval: '23:30',
 		interval: '30m'
@@ -25,13 +26,13 @@ class ReactIntervalSelector extends React.Component {
 
 	constructor(props) {
 		super(props);
-		const { intervalsFactory, fromInterval, toInterval, interval } = props;
+		const { initializer, fromInterval, toInterval, interval } = props;
 
 		this.handleMouseUp = this.handleMouseUp.bind(this);
 
 		let intervals;
 		try {
-			intervals = intervalsFactory(fromInterval, toInterval, interval);
+			intervals = initializer(fromInterval, toInterval, interval);
 			if (!Array.isArray(intervals)) throw new Error('Function should return an array');
 		} catch(e) {
 			throw e;
@@ -102,8 +103,8 @@ class ReactIntervalSelector extends React.Component {
 		for (let i = fromI; i <= toI; i++) {
 			newSelected[i] = value;
 		}
-
 		this.setState({ selected: newSelected });
+		if (this.props.onChangeSelection) this.props.onChangeSelection(newSelected);
 	}
 
 	render() {
