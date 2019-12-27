@@ -1,0 +1,41 @@
+{
+  "name": "react-interval-selector",
+  "version": "1.0.0",
+  "description": "React component for selecting intervals",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel ./src -d dist --copy-files",
+    "watch": "node ./scripts/watch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VasaPopkin/react-interval-selector.git"
+  },
+  "keywords": [
+    "react",
+    "intervals",
+    "ui"
+  ],
+  "author": "nmichkarev@mail.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VasaPopkin/react-interval-selector/issues"
+  },
+  "homepage": "https://github.com/VasaPopkin/react-interval-selector#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "node-watch": "^0.6.3"
+  },
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

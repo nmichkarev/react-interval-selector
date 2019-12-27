@@ -1,0 +1,37 @@
+.ranges-container {
+  padding: 5px;
+  display: inline-flex;
+  border-style: solid;
+}
+
+.range-interval {
+  width: 10px;
+  height: 35px;
+  border-style: solid;
+  margin-right: 3px;
+}
+
+.range-interval.selected {
+  background-color: yellowgreen;
+}
+
+.labels-container {
+	display: flex;
+}
+.ranges-label {
+  transform: rotate(90deg);
+  max-width: 10px;
+  max-height: 10px;
+}
+
+.ranges-container__range {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    align-items: center;
+}
+
+.ranges-container__range__label {
+  display: block;
+  writing-mode: vertical-lr;
+}
